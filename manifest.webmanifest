@@ -1,10 +1,10 @@
 {
-  "name": "ReflexLab — Orbital Station",
+  "name": "ReflexLab — Reaction Trainer",
   "short_name": "ReflexLab",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#02050b",
-  "theme_color": "#02050b",
-  "description": "Explore a 3D orbital station and complete a daily visual-response training circuit.",
+  "background_color": "#080d12",
+  "theme_color": "#080d12",
+  "description": "A simple visual reaction training app.",
   "icons": []
 }
