@@ -1,0 +1,10 @@
+{
+  "name": "ReflexLab — Daily Reflex Training",
+  "short_name": "ReflexLab",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080d12",
+  "theme_color": "#080d12",
+  "description": "Short daily visual-response training exercises.",
+  "icons": []
+}
