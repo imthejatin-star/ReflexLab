@@ -1,10 +1,10 @@
 {
-  "name": "ReflexLab — Daily Reflex Training",
+  "name": "ReflexLab — Orbital Station",
   "short_name": "ReflexLab",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#080d12",
-  "theme_color": "#080d12",
-  "description": "Short daily visual-response training exercises.",
+  "background_color": "#02050b",
+  "theme_color": "#02050b",
+  "description": "Explore a 3D orbital station and complete a daily visual-response training circuit.",
   "icons": []
 }
