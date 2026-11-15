@@ -2,7 +2,7 @@
   "name": "reflexlab",
   "version": "1.0.0",
   "private": true,
-  "description": "Offline-first daily visual response training app",
+  "description": "Simple touch-first orbit timing game inspired by the Match Hole mechanic",
   "scripts": {
     "build:android": "npx cap sync android"
   },
