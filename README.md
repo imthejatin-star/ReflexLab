@@ -1,10 +1,16 @@
-# ReflexLab
+# ReflexLab — Orbital Station
 
-An offline-first daily visual-response training app with a guided six-station circuit.
+ReflexLab is a visual-response training app set inside an explorable 3D orbital station.
 
-## Daily circuit
+## Experience
+- Walk around a compact station module in first person.
+- Look through a panoramic observation window into space, with a planet, stars, a moon and a passing orbital craft.
+- Explore the station using WASD / arrow keys or the on-screen directional pad; drag to look around.
+- Approach the illuminated training console and press **E** or tap **ACCESS REFLEX TRAINING**.
+- Open the logbook to review circuit history and progress.
 
-The main session takes about 6–8 minutes:
+## Daily reflex circuit
+The existing six-station circuit remains part of the app:
 1. Signal response — simple visual reaction
 2. Go or hold — response inhibition
 3. Choice mapping — colour-to-action decisions
@@ -12,21 +18,16 @@ The main session takes about 6–8 minutes:
 5. Pattern recall — short visual sequence memory
 6. Moving target — visual tracking and hand-eye response
 
-Each station runs for 60 seconds. The app records response times and accuracy, keeps a local performance history, and adjusts the next circuit's level based on accuracy. The official circuit is limited to one completion per local calendar day on that device.
+The official circuit is limited to one completion per local calendar day on that device. Progress is stored in browser local storage.
 
 ## Open the app
-
-- Open `index.html` in a modern browser, or
-- Enable GitHub Pages in repository Settings → Pages and deploy from the GitHub Actions workflow.
+Enable GitHub Pages in **Settings → Pages → Build and deployment → GitHub Actions**. The Pages workflow deploys on pushes to `main`.
 
 ## Android APK
+The workflow at `.github/workflows/android-apk.yml` builds a debug APK and uploads the `ReflexLab-debug-apk` artifact. Open Actions, select the latest Android build, and download its artifact after the workflow succeeds.
 
-The workflow at `.github/workflows/android-apk.yml` builds a debug APK and uploads it as the `ReflexLab-debug-apk` artifact. Open the Actions tab, select the latest Android build, and download its artifact after the workflow succeeds.
-
-## Data and limitations
-
-Progress is stored in browser local storage on the device. Clearing browser/app data can erase the history. This is a training game, not a clinical assessment. Faster scores on these exercises do not prove transfer to everyday or sports performance. Use comfortable screen brightness and stop if you experience eye strain, headache or dizziness. No strobe or flashing-light training is used.
-
-## Evidence-informed design
-
-The circuit combines visual detection, response selection, inhibition, peripheral awareness, short sequence recall and visual-motor tracking. Research suggests visual and integrated perceptual-motor training can improve some reaction-time and sport-specific outcomes, but effects vary and task practice can inflate scores. The app therefore tracks both speed and accuracy and changes task demands instead of relying on one repeated tap test.
+## Technical notes and limitations
+- 3D environment uses Three.js 0.160 from jsDelivr, so the first load requires an internet connection.
+- The orbital station is a real-time 3D scene, but it is a compact environment prototype rather than a full-scale space simulation.
+- The reaction circuit is a screen-based practice tool, not a medical test. In-app performance does not guarantee improved real-world or sports performance.
+- Use comfortable brightness and viewing distance; stop if you experience eye strain, headache or dizziness. No strobe effects are used.
