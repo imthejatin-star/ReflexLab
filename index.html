@@ -49,7 +49,7 @@
 <script>
 const $=id=>document.getElementById(id), KEY='reflexlab-circuit-v2';
 let store=JSON.parse(localStorage.getItem(KEY)||'{"runs":[],"level":1}');
-let station=0,remaining=50,stationTimer=null,spawnTimer=null,transitionTimer=null,runStart=0,stimStart=0,active=false,task='',correct=0,attempts=0,reactionTimes=[],stationStats=[],level=1,sequence=[],seqInput=0;
+let station=0,remaining=60,stationTimer=null,spawnTimer=null,trialTimer=null,transitionTimer=null,runStart=0,stimStart=0,active=false,task='',correct=0,attempts=0,reactionTimes=[],stationStats=[],level=1,sequence=[],seqInput=0;
 const names=['SIGNAL RESPONSE','GO OR HOLD','CHOICE MAPPING','SIDE AWARENESS','PATTERN RECALL','MOVING TARGET'];
 function today(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
 function save(){localStorage.setItem(KEY,JSON.stringify(store));render()}
@@ -67,15 +67,15 @@ function startCircuit(){
  station=0;correct=0;attempts=0;reactionTimes=[];stationStats=[];runStart=performance.now();level=store.level||1;
  $('overlay').classList.add('open');showStationIntro();
 }
-function clearClocks(){clearInterval(stationTimer);clearTimeout(spawnTimer);clearTimeout(transitionTimer)}
+function clearClocks(){clearInterval(stationTimer);clearTimeout(spawnTimer);clearTimeout(trialTimer);clearTimeout(transitionTimer)}
 function showStationIntro(){
- clearClocks();active=false;hideAll();remaining=50;
+ clearClocks();active=false;hideAll();remaining=60;
  $('stationName').textContent=names[station];$('stationCount').textContent=String(station+1).padStart(2,'0')+' / 06';
- $('timeLeft').textContent='00:50';$('timeBar').style.transform='scaleX(1)';
+ $('timeLeft').textContent='01:00';$('timeBar').style.transform='scaleX(1)';
  $('liveAccuracy').textContent=attempts?Math.round(correct/attempts*100)+'%':'—';
  $('instruction').style.display='block';
  $('instruction').innerHTML='<strong>'+names[station]+'</strong>'+stationDescription(station);
- $('stationHint').textContent='Station '+(station+1)+' of 6 · 50 seconds';
+ $('stationHint').textContent='Station '+(station+1)+' of 6 · 60 seconds';
  $('beginBtn').style.display='block';$('beginBtn').textContent=station===0?'BEGIN STATION':'START NEXT STATION';
 }
 function stationDescription(n){return [
@@ -90,7 +90,7 @@ function hideAll(){['stimulus','choices','choiceRow','sequence','movingTarget'].
 function beginStation(){
  if(active)return;
  active=true;$('beginBtn').style.display='none';$('instruction').style.display='none';
- remaining=50;stationTimer=setInterval(tick,1000);nextTrial();
+ remaining=60;stationTimer=setInterval(tick,1000);nextTrial();
 }
 function tick(){
  remaining--; $('timeLeft').textContent='00:'+String(Math.max(0,remaining)).padStart(2,'0');$('timeBar').style.transform='scaleX('+Math.max(0,remaining/50)+')';
@@ -120,7 +120,7 @@ function showTrial(){
 }
 function answer(value){
  if(!active||!task)return;
- attempts++;
+ clearTimeout(trialTimer);attempts++;
  const ok=value===true?task==='tap':value===task;
  if(ok){correct++;reactionTimes.push(performance.now()-stimStart)}
  task='';hideAll();$('instruction').style.display='none';nextTrial();
@@ -141,7 +141,7 @@ function sequenceAnswer(v){
 }
 function endStation(){
  active=false;clearClocks();hideAll();$('instruction').style.display='block';stationStats.push({correct,attempts});
- if(station<5){station++;$('instruction').innerHTML='<strong>STATION '+(station)+'/6 COMPLETE</strong>Next: '+names[station];$('stationHint').textContent='Transition · 5 seconds';$('beginBtn').style.display='block';$('beginBtn').textContent='CONTINUE';transitionTimer=setTimeout(()=>{},5000)}
+ if(station<5){station++;$('instruction').innerHTML='<strong>STATION '+(station)+'/6 COMPLETE</strong>Next: '+names[station];$('stationHint').textContent='Transition · take a short pause';$('beginBtn').style.display='block';$('beginBtn').textContent='CONTINUE';transitionTimer=setTimeout(()=>{},5000)}
  else finishCircuit();
 }
 function finishCircuit(){
