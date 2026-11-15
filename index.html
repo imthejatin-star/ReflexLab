@@ -98,7 +98,7 @@ function tick(){
  if(remaining<=0)endStation();
 }
 function nextTrial(){
- if(!active)return;clearTimeout(spawnTimer);hideAll();
+ if(!active)return;clearTimeout(spawnTimer);clearTimeout(trialTimer);hideAll();
  const wait=Math.max(550,1450-(level-1)*90)+Math.random()*650;
  spawnTimer=setTimeout(()=>showTrial(),wait);
 }
