@@ -6,7 +6,7 @@
 <style>
 :root{color-scheme:dark;--bg:#080d12;--panel:#101922;--panel2:#14232d;--line:#263b47;--text:#e8f1f5;--muted:#8da2ad;--mint:#67f0c0;--blue:#73bdff;--amber:#ffca73;--red:#ff777e}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 78% -15%,#1b3a49 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}button{font:inherit;cursor:pointer}button:focus-visible{outline:2px solid var(--mint);outline-offset:3px}.shell{max-width:1040px;margin:auto;padding:22px 18px 50px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px}.brand{font-size:15px;font-weight:900;letter-spacing:.17em}.brand span{color:var(--mint)}.live{font-size:10px;letter-spacing:.15em;color:var(--mint)}.hero{margin:38px 0 22px}.eyebrow{color:var(--mint);font-size:10px;letter-spacing:.2em;text-transform:uppercase}.hero h1{font-size:clamp(34px,7vw,58px);line-height:1;letter-spacing:-.055em;margin:10px 0}.hero p{color:var(--muted);max-width:650px}.panel{background:linear-gradient(145deg,#14232d,#0d171e);border:1px solid var(--line);border-radius:19px;padding:20px}.circuit{display:grid;grid-template-columns:1.25fr .75fr;gap:14px}.circuit h2{font-size:22px;margin:5px 0}.circuit p{color:var(--muted);margin:8px 0 15px}.primary,.secondary{border:0;border-radius:11px;padding:13px 17px;font-weight:800}.primary{background:var(--mint);color:#06130f}.secondary{background:#1b2b36;border:1px solid var(--line);color:var(--text)}.primary:disabled{opacity:.35;cursor:not-allowed}.stations{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.station{border:1px solid var(--line);background:#101d25;border-radius:12px;padding:10px}.station b{display:block;font-size:12px}.station small{color:var(--muted);font-size:10px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}.stat{padding:14px;border-radius:14px;background:#101a22;border:1px solid var(--line)}.stat small{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em}.stat strong{display:block;font-size:25px;margin-top:3px}.section{display:flex;justify-content:space-between;align-items:end;margin:28px 0 10px}.section h2{margin:0;font-size:18px}.section small{color:var(--muted)}.history{display:grid;gap:7px}.history-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.muted{color:var(--muted)}.foot{font-size:11px;color:var(--muted);margin-top:22px;max-width:850px}
-.overlay{position:fixed;inset:0;z-index:9;background:#05090df5;display:none;align-items:center;justify-content:center;padding:12px}.overlay.open{display:flex}.stage{width:min(800px,100%);height:min(760px,96dvh);background:#0c151c;border:1px solid #2a414e;border-radius:20px;padding:16px;display:flex;flex-direction:column}.stage-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.stage-name{font-weight:850;letter-spacing:.1em;font-size:12px}.close{background:#1b2933;color:var(--text);border:1px solid var(--line);padding:8px 12px;border-radius:9px}.hud{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;margin:14px 0}.hud div:nth-child(2){text-align:center}.hud div:last-child{text-align:right}.hud small{display:block;color:var(--muted);font-size:9px;letter-spacing:.12em}.hud b{font-size:18px;font-variant-numeric:tabular-nums}.bar{height:5px;background:#23343e;border-radius:10px;overflow:hidden;margin-bottom:12px}.bar i{display:block;width:100%;height:100%;background:var(--mint);transform-origin:left}.arena{flex:1;min-height:310px;border:1px solid #253c48;border-radius:15px;background:radial-gradient(ellipse at center,#152a35,#091117 72%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;touch-action:manipulation}.instruction{text-align:center;padding:20px;color:var(--muted);max-width:540px}.instruction strong{display:block;color:var(--text);font-size:clamp(24px,5vw,38px);margin-bottom:8px}.stimulus{position:absolute;display:none;align-items:center;justify-content:center;border:0}.dot{width:76px;height:76px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 10px #67f0c01a,0 0 45px #67f0c070}.dot.blue{background:var(--blue);box-shadow:0 0 0 10px #73bdff1a,0 0 45px #73bdff70}.dot.amber{background:var(--amber);box-shadow:0 0 0 10px #ffca731a,0 0 45px #ffca7370}.dot.red{background:var(--red);box-shadow:0 0 0 10px #ff777e1a,0 0 45px #ff777e70}.choices{display:none;grid-template-columns:repeat(2,minmax(100px,180px));gap:12px}.choice{background:#172832;color:var(--text);border:1px solid #38505d;border-radius:14px;padding:23px 10px;font-size:20px;font-weight:850}.choice:active{border-color:var(--mint)}.choice-row{display:none;gap:12px;position:absolute;bottom:16px;left:12px;right:12px}.choice-row button{flex:1}.direction{background:#172832;color:var(--text);border:1px solid #38505d;border-radius:12px;padding:17px 10px;font-weight:850}.sequence{display:none;gap:9px;flex-wrap:wrap;justify-content:center}.seq{width:65px;height:65px;border-radius:13px;border:1px solid #38505d;background:#142630;color:var(--text);font-size:22px;font-weight:800}.seq.active{background:var(--mint);color:#06130f}.arena-target{position:absolute;width:64px;height:64px;border:0;border-radius:50%;background:var(--mint);box-shadow:0 0 35px #67f0c070;display:none}.bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px}.bottom span{font-size:11px;color:var(--muted)}.result{margin:auto;text-align:center;max-width:520px}.result h2{font-size:30px;margin:7px}.result .time{font-size:clamp(42px,10vw,66px);font-weight:900;color:var(--mint);font-variant-numeric:tabular-nums}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0}.result-grid div{background:#14232c;border:1px solid var(--line);border-radius:12px;padding:12px}.result-grid small{display:block;color:var(--muted);font-size:10px}.result-grid b{font-size:18px}@media(max-width:700px){.circuit{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.shell{padding:17px 13px 35px}.hero{margin:28px 0 18px}.panel{padding:16px}.stage{height:96dvh;padding:12px}.arena{min-height:280px}.result-grid{gap:5px}.result-grid div{padding:8px}}
+.overlay{position:fixed;inset:0;z-index:9;background:#05090df5;display:none;align-items:center;justify-content:center;padding:12px}.overlay.open{display:flex}.stage{width:min(800px,100%);height:min(760px,96dvh);background:#0c151c;border:1px solid #2a414e;border-radius:20px;padding:16px;display:flex;flex-direction:column}.stage-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.stage-name{font-weight:850;letter-spacing:.1em;font-size:12px}.close{background:#1b2933;color:var(--text);border:1px solid var(--line);padding:8px 12px;border-radius:9px}.hud{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;margin:14px 0}.hud div:nth-child(2){text-align:center}.hud div:last-child{text-align:right}.hud small{display:block;color:var(--muted);font-size:9px;letter-spacing:.12em}.hud b{font-size:18px;font-variant-numeric:tabular-nums}.bar{height:5px;background:#23343e;border-radius:10px;overflow:hidden;margin-bottom:12px}.bar i{display:block;width:100%;height:100%;background:var(--mint);transform-origin:left}.arena{flex:1;min-height:310px;border:1px solid #253c48;border-radius:15px;background:radial-gradient(ellipse at center,#152a35,#091117 72%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;touch-action:manipulation}.instruction{text-align:center;padding:20px;color:var(--muted);max-width:540px}.instruction strong{display:block;color:var(--text);font-size:clamp(24px,5vw,38px);margin-bottom:8px}.stimulus{position:absolute;display:none;align-items:center;justify-content:center;border:0}.dot{width:76px;height:76px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 10px #67f0c01a,0 0 45px #67f0c070}.dot.blue{background:var(--blue);box-shadow:0 0 0 10px #73bdff1a,0 0 45px #73bdff70}.dot.amber{background:var(--amber);box-shadow:0 0 0 10px #ffca731a,0 0 45px #ffca7370}.dot.red{background:var(--red);box-shadow:0 0 0 10px #ff777e1a,0 0 45px #ff777e70}.choices{display:none;grid-template-columns:repeat(2,minmax(100px,180px));gap:12px}.choice{background:#172832;color:var(--text);border:1px solid #38505d;border-radius:14px;padding:23px 10px;font-size:20px;font-weight:850}.choice:active{border-color:var(--mint)}.choice-row{display:none;gap:12px;position:absolute;bottom:16px;left:12px;right:12px}.choice-row button{flex:1}.direction{background:#172832;color:var(--text);border:1px solid #38505d;border-radius:12px;padding:17px 10px;font-weight:850}.sequence{display:none;gap:9px;flex-wrap:wrap;justify-content:center}.seq{width:65px;height:65px;border-radius:13px;border:1px solid #38505d;background:#142630;color:var(--text);font-size:22px;font-weight:800}.seq.active{background:var(--mint);color:#06130f}.arena-target{position:absolute;width:64px;height:64px;border:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e4fff6,#67f0c0 42%,#168d70 100%);box-shadow:0 0 0 8px #67f0c01c,0 0 34px #67f0c080;display:none;will-change:left,top;touch-action:manipulation}.stimulus.dot{animation:target-arrive .22s ease-out both}.direction{min-height:58px;transition:transform .12s,border-color .12s}.direction:active{transform:scale(.97);border-color:var(--mint)}@keyframes target-arrive{from{opacity:0;scale:.65}to{opacity:1;scale:1}}.bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px}.bottom span{font-size:11px;color:var(--muted)}.result{margin:auto;text-align:center;max-width:520px}.result h2{font-size:30px;margin:7px}.result .time{font-size:clamp(42px,10vw,66px);font-weight:900;color:var(--mint);font-variant-numeric:tabular-nums}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0}.result-grid div{background:#14232c;border:1px solid var(--line);border-radius:12px;padding:12px}.result-grid small{display:block;color:var(--muted);font-size:10px}.result-grid b{font-size:18px}@media(max-width:700px){.circuit{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.shell{padding:17px 13px 35px}.hero{margin:28px 0 18px}.panel{padding:16px}.stage{height:96dvh;padding:12px}.arena{min-height:280px}.result-grid{gap:5px}.result-grid div{padding:8px}}
 
 /* ORBITAL STATION WORLD */
 html,body{height:100%;overflow:hidden;background:#02060d}
@@ -107,9 +107,10 @@ function startCircuit(){
  station=0;correct=0;attempts=0;reactionTimes=[];stationStats=[];runStart=performance.now();level=store.level||1;
  $('overlay').classList.add('open');showStationIntro();
 }
-function clearClocks(){clearInterval(stationTimer);clearTimeout(spawnTimer);clearTimeout(trialTimer);clearTimeout(transitionTimer)}
+function clearClocks(){clearInterval(stationTimer);clearTimeout(spawnTimer);clearTimeout(trialTimer);clearTimeout(transitionTimer);if(moveFrame)cancelAnimationFrame(moveFrame);moveFrame=0}
+let moveFrame=0,trialLocked=false,trialSerial=0,trialStarted=0,activeTarget=null,movePath=null,feedbackTimer=null;
 function showStationIntro(){
- clearClocks();active=false;hideAll();remaining=60;
+ clearClocks();active=false;trialLocked=false;task='';hideAll();remaining=60;
  $('stageName').textContent=names[station];$('stationCount').textContent=String(station+1).padStart(2,'0')+' / 06';
  $('timeLeft').textContent='01:00';$('timeBar').style.transform='scaleX(1)';
  $('liveAccuracy').textContent=attempts?Math.round(correct/attempts*100)+'%':'—';
@@ -119,17 +120,17 @@ function showStationIntro(){
  $('beginBtn').style.display='block';$('beginBtn').textContent=station===0?'BEGIN STATION':'START NEXT STATION';
 }
 function stationDescription(n){return [
-'Tap the green signal as soon as it appears. Do not tap during the waiting interval.',
-'Tap circles when they appear. Do not tap triangles. This station measures response control.',
-'Follow the colour rule: GREEN = tap left, BLUE = tap right. Make the correct choice quickly.',
-'Keep your gaze near the centre marker. When a signal appears on the left or right, tap the matching side.',
-'Watch a short arrow sequence, then reproduce it in the same order.',
-'Tap the moving target after it appears. Follow it with your eyes without rushing.'
+'Wait for the green signal. Tap it once as quickly as you can. Its position changes between trials.',
+'Tap the circular green signal. Do not touch the red square. Correctly waiting is part of the challenge.',
+'Read the colour, then choose its mapped side: GREEN = LEFT, BLUE = RIGHT.',
+'Keep your eyes near the centre. When a side marker appears, choose the matching side.',
+'Watch the sequence of four directional cues, then reproduce it in order.',
+'Track the smoothly moving target and tap it while it is in motion.'
 ][n]}
 function hideAll(){['stimulus','choices','choiceRow','sequence','movingTarget'].forEach(id=>$(id).style.display='none')}
 function beginStation(){
  if(active)return;
- active=true;$('beginBtn').style.display='none';$('instruction').style.display='none';
+ active=true;trialLocked=false;$('beginBtn').style.display='none';$('instruction').style.display='none';
  remaining=60;stationTimer=setInterval(tick,1000);nextTrial();
 }
 function tick(){
@@ -138,48 +139,84 @@ function tick(){
  if(remaining<=0)endStation();
 }
 function nextTrial(){
- if(!active)return;clearTimeout(spawnTimer);clearTimeout(trialTimer);hideAll();
- const wait=Math.max(550,1450-(level-1)*90)+Math.random()*650;
+ if(!active)return;
+ clearTimeout(spawnTimer);clearTimeout(trialTimer);if(moveFrame)cancelAnimationFrame(moveFrame);moveFrame=0;
+ hideAll();task='';trialLocked=true;activeTarget=null;movePath=null;
+ const wait=850+Math.random()*850;
  spawnTimer=setTimeout(()=>showTrial(),wait);
+}
+function placeStimulus(el,x,y,size=68){
+ el.style.width=size+'px';el.style.height=size+'px';el.style.left=x+'%';el.style.top=y+'%';el.style.transform='translate(-50%,-50%)';el.style.display='flex';
 }
 function showTrial(){
  if(!active)return;
- $('instruction').style.display='none';
- stimStart=performance.now();
+ trialLocked=false;trialSerial++;const serial=trialSerial;
+ $('instruction').style.display='none';trialStarted=performance.now();stimStart=trialStarted;
  if(station===0){
-  task='tap';$('stimulus').className='stimulus dot';$('stimulus').style.display='block';$('stimulus').onclick=()=>answer(true);
+  task='tap';const el=$('stimulus');el.className='stimulus dot';placeStimulus(el,15+Math.random()*70,18+Math.random()*64,70);
+  el.onclick=()=>answer(true);trialTimer=setTimeout(()=>missTrial(serial),1900);
  }else if(station===1){
-  task=Math.random()<.7?'tap':'hold';const el=$('stimulus');el.className='stimulus';el.style.display='flex';el.style.width='82px';el.style.height='82px';el.style.borderRadius=task==='tap'?'50%':'12px';el.style.background=task==='tap'?'var(--mint)':'var(--red)';el.onclick=()=>answer(task==='tap');
+  const go=Math.random()<.68;task=go?'tap':'hold';const el=$('stimulus');el.className='stimulus';el.style.borderRadius=go?'50%':'13px';el.style.background=go?'var(--mint)':'var(--red)';el.style.boxShadow=go?'0 0 0 9px #67f0c01a,0 0 38px #67f0c070':'0 0 0 9px #ff777e1a,0 0 38px #ff777e70';placeStimulus(el,50,50,78);el.onclick=()=>{if(task==='hold')answer(false);else answer(true)};
+  if(!go)trialTimer=setTimeout(()=>{if(active&&serial===trialSerial&&task==='hold')answer('hold')},1050);
+  else trialTimer=setTimeout(()=>missTrial(serial),1700);
  }else if(station===2){
-  task=Math.random()<.5?'left':'right';const col=Math.random()<.5?'green':'blue';task=col==='green'?'left':'right';$('instruction').style.display='block';$('instruction').innerHTML='<strong>'+col.toUpperCase()+'</strong>GREEN → LEFT &nbsp; / &nbsp; BLUE → RIGHT';$('choiceRow').style.display='flex';$('choiceRow').innerHTML='<button class="direction" onclick="answer(\'left\')">← LEFT</button><button class="direction" onclick="answer(\'right\')">RIGHT →</button>';
+  const col=Math.random()<.5?'green':'blue';task=col==='green'?'left':'right';
+  $('instruction').style.display='block';$('instruction').innerHTML='<strong style="color:'+(col==='green'?'var(--mint)':'var(--blue)')+'">'+col.toUpperCase()+'</strong>GREEN → LEFT &nbsp; / &nbsp; BLUE → RIGHT';
+  $('choiceRow').style.display='flex';$('choiceRow').innerHTML='<button class="direction" onclick="answer(\'left\')">← LEFT</button><button class="direction" onclick="answer(\'right\')">RIGHT →</button>';trialTimer=setTimeout(()=>missTrial(serial),2300);
  }else if(station===3){
-  task=Math.random()<.5?'left':'right';$('instruction').style.display='block';$('instruction').innerHTML='<strong style="font-size:26px">＋</strong>Keep your eyes near the centre. Detect the side signal.';const el=$('stimulus');el.onclick=null;el.className='stimulus dot amber';el.style.width='38px';el.style.height='38px';el.style.display='block';el.style.left=task==='left'?'12%':'88%';el.style.top=(25+Math.random()*45)+'%';el.style.transform='translate(-50%,-50%)';$('choiceRow').style.display='flex';$('choiceRow').innerHTML='<button class="direction" onclick="answer(\'left\')">← LEFT</button><button class="direction" onclick="answer(\'right\')">RIGHT →</button>';
+  task=Math.random()<.5?'left':'right';$('instruction').style.display='block';$('instruction').innerHTML='<strong style="font-size:26px;color:#dcecf5">＋</strong>Keep your gaze near the centre marker.';
+  const el=$('stimulus');el.className='stimulus dot amber';placeStimulus(el,task==='left'?13:87,25+Math.random()*48,40);
+  $('choiceRow').style.display='flex';$('choiceRow').innerHTML='<button class="direction" onclick="answer(\'left\')">← LEFT</button><button class="direction" onclick="answer(\'right\')">RIGHT →</button>';trialTimer=setTimeout(()=>missTrial(serial),2200);
  }else if(station===4){startSequence()}
- else if(station===5){
-  task='tap';const el=$('movingTarget');el.style.display='block';el.style.left=(10+Math.random()*78)+'%';el.style.top=(12+Math.random()*72)+'%';el.style.transform='translate(-50%,-50%)';el.onclick=()=>answer(true);
- }
+ else if(station===5){startMovingTarget(serial)}
+}
+function missTrial(serial){
+ if(!active||serial!==trialSerial||trialLocked)return;
+ trialLocked=true;attempts++;task='';if(moveFrame)cancelAnimationFrame(moveFrame);moveFrame=0;
+ hideAll();showFeedback('NO RESPONSE','Wait for the next cue.',false);spawnTimer=setTimeout(()=>{if(active)nextTrial()},420);
+}
+function showFeedback(title,sub,good){
+ const el=$('instruction');el.style.display='block';el.innerHTML='<strong style="color:'+(good?'var(--mint)':'var(--amber)')+'">'+title+'</strong>'+sub;
+ feedbackTimer=setTimeout(()=>{if(active)el.style.display='none'},360);
 }
 function answer(value){
- if(!active||!task)return;
- clearTimeout(trialTimer);attempts++;
- const ok=value===true?task==='tap':value===task;
+ if(!active||!task||trialLocked)return;
+ trialLocked=true;clearTimeout(trialTimer);attempts++;
+ const ok=value==='hold'?task==='hold':(value===true?task==='tap':value===task);
  if(ok){correct++;reactionTimes.push(performance.now()-stimStart)}
- task='';hideAll();$('instruction').style.display='none';nextTrial();
+ task='';if(moveFrame)cancelAnimationFrame(moveFrame);moveFrame=0;hideAll();
+ showFeedback(ok?'GOOD RESPONSE':'INCORRECT','',ok);
+ spawnTimer=setTimeout(()=>{if(active)nextTrial()},460);
 }
 function startSequence(){
- task='sequence';sequence=Array.from({length:Math.min(2+Math.floor((level-1)/2),4)},()=>Math.floor(Math.random()*4));seqInput=0;
- $('instruction').style.display='block';$('instruction').innerHTML='<strong>MEMORISE</strong>Watch the arrow order.';
+ task='sequence';sequence=Array.from({length:4},()=>Math.floor(Math.random()*4));seqInput=0;
+ $('instruction').style.display='block';$('instruction').innerHTML='<strong>MEMORISE</strong>Watch the four-direction sequence.';
  $('sequence').style.display='flex';$('sequence').innerHTML=sequence.map((v,i)=>'<div class="seq" id="seq'+i+'">'+['↑','→','↓','←'][v]+'</div>').join('');
- let i=0;const reveal=()=>{if(!active||i>=sequence.length){if(!active)return;$('instruction').innerHTML='<strong>REPEAT</strong>Tap the arrows in the same order.';$('sequence').innerHTML=['↑','→','↓','←'].map((a,k)=>'<button class="seq" onclick="sequenceAnswer('+k+')">'+a+'</button>').join('');return}
- const node=$('seq'+i);node.classList.add('active');setTimeout(()=>node.classList.remove('active'),300);i++;setTimeout(reveal,520)};
- setTimeout(reveal,350);
+ let i=0;const reveal=()=>{if(!active||i>=sequence.length){if(!active)return;$('instruction').innerHTML='<strong>REPEAT</strong>Tap the arrows in the same order.';$('sequence').innerHTML=['↑','→','↓','←'].map((a,k)=>'<button class="seq" onclick="sequenceAnswer('+k+')">'+a+'</button>').join('');trialTimer=setTimeout(()=>missTrial(trialSerial),6500);return}
+ const node=$('seq'+i);node.classList.add('active');setTimeout(()=>node.classList.remove('active'),330);i++;setTimeout(reveal,650)};
+ setTimeout(reveal,450);
 }
 function sequenceAnswer(v){
- if(!active||task!=='sequence')return;
- if(v!==sequence[seqInput]){attempts++;task='';hideAll();$('instruction').style.display='none';nextTrial();return}
+ if(!active||task!=='sequence'||trialLocked)return;
+ if(v!==sequence[seqInput]){trialLocked=true;clearTimeout(trialTimer);attempts++;task='';hideAll();showFeedback('SEQUENCE MISSED','The order was not correct.',false);spawnTimer=setTimeout(()=>{if(active)nextTrial()},500);return}
  seqInput++;
- if(seqInput===sequence.length){attempts++;correct++;reactionTimes.push(performance.now()-stimStart);task='';hideAll();$('instruction').style.display='none';nextTrial()}
+ if(seqInput===sequence.length){trialLocked=true;clearTimeout(trialTimer);attempts++;correct++;reactionTimes.push(performance.now()-stimStart);task='';hideAll();showFeedback('SEQUENCE COMPLETE','All four directions correct.',true);spawnTimer=setTimeout(()=>{if(active)nextTrial()},500)}
 }
+function startMovingTarget(serial){
+ task='moving';const el=$('movingTarget');el.style.display='block';el.style.transform='translate(-50%,-50%)';
+ const leftToRight=Math.random()<.5;const y1=24+Math.random()*48,y2=24+Math.random()*48;
+ const x1=leftToRight?12:88,x2=leftToRight?88:12;
+ movePath={start:performance.now(),duration:2100,x1,y1,x2,y2,serial};
+ const animateTarget=now=>{
+  if(!active||serial!==trialSerial||trialLocked||!movePath)return;
+  const p=Math.min(1,(now-movePath.start)/movePath.duration),ease=p*p*(3-2*p);
+  el.style.left=(x1+(x2-x1)*ease)+'%';el.style.top=(y1+(y2-y1)*ease)+'%';
+  if(p<1)moveFrame=requestAnimationFrame(animateTarget);
+ };
+ moveFrame=requestAnimationFrame(animateTarget);el.onclick=()=>{if(!active||trialLocked||serial!==trialSerial)return;answer(true)};
+ trialTimer=setTimeout(()=>missTrial(serial),2250);
+}
+
 function endStation(){
  active=false;clearClocks();hideAll();$('instruction').style.display='block';stationStats.push({correct,attempts});
  if(station<5){station++;$('instruction').innerHTML='<strong>STATION '+(station)+'/6 COMPLETE</strong>Next: '+names[station];$('stationHint').textContent='Transition · take a short pause';$('beginBtn').style.display='block';$('beginBtn').textContent='CONTINUE';transitionTimer=setTimeout(()=>{},5000)}
