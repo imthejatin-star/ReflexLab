@@ -1,0 +1,8 @@
+{
+  "appId": "com.jatin.reflexlab",
+  "appName": "ReflexLab",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
