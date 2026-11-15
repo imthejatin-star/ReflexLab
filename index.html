@@ -7,7 +7,47 @@
 :root{color-scheme:dark;--bg:#080d12;--panel:#101922;--panel2:#14232d;--line:#263b47;--text:#e8f1f5;--muted:#8da2ad;--mint:#67f0c0;--blue:#73bdff;--amber:#ffca73;--red:#ff777e}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 78% -15%,#1b3a49 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}button{font:inherit;cursor:pointer}button:focus-visible{outline:2px solid var(--mint);outline-offset:3px}.shell{max-width:1040px;margin:auto;padding:22px 18px 50px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px}.brand{font-size:15px;font-weight:900;letter-spacing:.17em}.brand span{color:var(--mint)}.live{font-size:10px;letter-spacing:.15em;color:var(--mint)}.hero{margin:38px 0 22px}.eyebrow{color:var(--mint);font-size:10px;letter-spacing:.2em;text-transform:uppercase}.hero h1{font-size:clamp(34px,7vw,58px);line-height:1;letter-spacing:-.055em;margin:10px 0}.hero p{color:var(--muted);max-width:650px}.panel{background:linear-gradient(145deg,#14232d,#0d171e);border:1px solid var(--line);border-radius:19px;padding:20px}.circuit{display:grid;grid-template-columns:1.25fr .75fr;gap:14px}.circuit h2{font-size:22px;margin:5px 0}.circuit p{color:var(--muted);margin:8px 0 15px}.primary,.secondary{border:0;border-radius:11px;padding:13px 17px;font-weight:800}.primary{background:var(--mint);color:#06130f}.secondary{background:#1b2b36;border:1px solid var(--line);color:var(--text)}.primary:disabled{opacity:.35;cursor:not-allowed}.stations{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.station{border:1px solid var(--line);background:#101d25;border-radius:12px;padding:10px}.station b{display:block;font-size:12px}.station small{color:var(--muted);font-size:10px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}.stat{padding:14px;border-radius:14px;background:#101a22;border:1px solid var(--line)}.stat small{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em}.stat strong{display:block;font-size:25px;margin-top:3px}.section{display:flex;justify-content:space-between;align-items:end;margin:28px 0 10px}.section h2{margin:0;font-size:18px}.section small{color:var(--muted)}.history{display:grid;gap:7px}.history-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.muted{color:var(--muted)}.foot{font-size:11px;color:var(--muted);margin-top:22px;max-width:850px}
 .overlay{position:fixed;inset:0;z-index:9;background:#05090df5;display:none;align-items:center;justify-content:center;padding:12px}.overlay.open{display:flex}.stage{width:min(800px,100%);height:min(760px,96dvh);background:#0c151c;border:1px solid #2a414e;border-radius:20px;padding:16px;display:flex;flex-direction:column}.stage-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.stage-name{font-weight:850;letter-spacing:.1em;font-size:12px}.close{background:#1b2933;color:var(--text);border:1px solid var(--line);padding:8px 12px;border-radius:9px}.hud{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;margin:14px 0}.hud div:nth-child(2){text-align:center}.hud div:last-child{text-align:right}.hud small{display:block;color:var(--muted);font-size:9px;letter-spacing:.12em}.hud b{font-size:18px;font-variant-numeric:tabular-nums}.bar{height:5px;background:#23343e;border-radius:10px;overflow:hidden;margin-bottom:12px}.bar i{display:block;width:100%;height:100%;background:var(--mint);transform-origin:left}.arena{flex:1;min-height:310px;border:1px solid #253c48;border-radius:15px;background:radial-gradient(ellipse at center,#152a35,#091117 72%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;touch-action:manipulation}.instruction{text-align:center;padding:20px;color:var(--muted);max-width:540px}.instruction strong{display:block;color:var(--text);font-size:clamp(24px,5vw,38px);margin-bottom:8px}.stimulus{position:absolute;display:none;align-items:center;justify-content:center;border:0}.dot{width:76px;height:76px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 10px #67f0c01a,0 0 45px #67f0c070}.dot.blue{background:var(--blue);box-shadow:0 0 0 10px #73bdff1a,0 0 45px #73bdff70}.dot.amber{background:var(--amber);box-shadow:0 0 0 10px #ffca731a,0 0 45px #ffca7370}.dot.red{background:var(--red);box-shadow:0 0 0 10px #ff777e1a,0 0 45px #ff777e70}.choices{display:none;grid-template-columns:repeat(2,minmax(100px,180px));gap:12px}.choice{background:#172832;color:var(--text);border:1px solid #38505d;border-radius:14px;padding:23px 10px;font-size:20px;font-weight:850}.choice:active{border-color:var(--mint)}.choice-row{display:none;gap:12px;position:absolute;bottom:16px;left:12px;right:12px}.choice-row button{flex:1}.direction{background:#172832;color:var(--text);border:1px solid #38505d;border-radius:12px;padding:17px 10px;font-weight:850}.sequence{display:none;gap:9px;flex-wrap:wrap;justify-content:center}.seq{width:65px;height:65px;border-radius:13px;border:1px solid #38505d;background:#142630;color:var(--text);font-size:22px;font-weight:800}.seq.active{background:var(--mint);color:#06130f}.arena-target{position:absolute;width:64px;height:64px;border:0;border-radius:50%;background:var(--mint);box-shadow:0 0 35px #67f0c070;display:none}.bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px}.bottom span{font-size:11px;color:var(--muted)}.result{margin:auto;text-align:center;max-width:520px}.result h2{font-size:30px;margin:7px}.result .time{font-size:clamp(42px,10vw,66px);font-weight:900;color:var(--mint);font-variant-numeric:tabular-nums}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0}.result-grid div{background:#14232c;border:1px solid var(--line);border-radius:12px;padding:12px}.result-grid small{display:block;color:var(--muted);font-size:10px}.result-grid b{font-size:18px}@media(max-width:700px){.circuit{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.shell{padding:17px 13px 35px}.hero{margin:28px 0 18px}.panel{padding:16px}.stage{height:96dvh;padding:12px}.arena{min-height:280px}.result-grid{gap:5px}.result-grid div{padding:8px}}
+
+/* ORBITAL STATION WORLD */
+html,body{height:100%;overflow:hidden;background:#02060d}
+body{min-height:100dvh}
+.shell{display:none}
+#orbitalWorld{position:fixed;inset:0;z-index:1;background:#02060d;overflow:hidden}
+#orbitalWorld canvas{display:block;width:100%;height:100%;touch-action:none}
+#orbitalHud{position:fixed;inset:0;z-index:3;pointer-events:none;color:#e8f4fa}
+#orbitalBrand{position:absolute;top:calc(14px + env(safe-area-inset-top));left:17px;font-size:10px;letter-spacing:.24em;font-weight:900;color:#b5d8e9;text-shadow:0 2px 12px #000}
+#orbitalBrand b{display:block;font-size:16px;color:#f4fbff;letter-spacing:.16em;margin-top:4px}
+#orbitalStatus{position:absolute;top:calc(15px + env(safe-area-inset-top));right:16px;display:flex;gap:8px;align-items:center}
+.orbital-chip{pointer-events:auto;border:1px solid #9ac7df33;background:#07121bbd;color:#dceef7;border-radius:10px;padding:9px 12px;font-size:9px;letter-spacing:.13em;backdrop-filter:blur(12px)}
+#orbitalStatus .online{color:#79e7c4}
+#orbitalCrosshair{position:absolute;left:50%;top:50%;width:7px;height:7px;border:1px solid #d8efff99;border-radius:50%;transform:translate(-50%,-50%);opacity:.75}
+#orbitalHelp{position:absolute;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);padding:8px 12px;border-radius:9px;background:#06111bbd;border:1px solid #a4d1e522;color:#9db6c5;font-size:10px;letter-spacing:.06em;white-space:nowrap;text-align:center}
+#orbitalInteract{position:absolute;left:50%;bottom:calc(58px + env(safe-area-inset-bottom));transform:translateX(-50%);display:none;pointer-events:auto;background:#b8eddf;color:#071510;border:0;border-radius:10px;padding:13px 17px;font-size:10px;font-weight:900;letter-spacing:.12em;box-shadow:0 8px 35px #0008}
+#orbitalInteract.show{display:block}
+#orbitalStart{position:fixed;inset:0;z-index:6;display:grid;place-items:center;padding:20px;background:linear-gradient(90deg,#02060bd9,#02060b55),radial-gradient(ellipse at 70% 50%,#15354a66,transparent 60%)}
+.orbital-card{width:min(500px,100%);padding:26px;border-radius:19px;border:1px solid #8fc8e333;background:linear-gradient(145deg,#0d1c28f5,#050b12f5);box-shadow:0 25px 100px #000b;backdrop-filter:blur(18px)}
+.orbital-eyebrow{font-size:9px;letter-spacing:.25em;color:#83d8c1;font-weight:900}
+.orbital-card h1{font-size:clamp(34px,8vw,58px);line-height:.98;letter-spacing:-.055em;margin:14px 0}
+.orbital-card p{font-size:13px;line-height:1.7;color:#a3b7c5}
+.orbital-enter{margin-top:14px;border:0;border-radius:10px;background:#bcefe0;color:#06140f;padding:14px 19px;font-weight:900;letter-spacing:.12em;font-size:11px}
+#orbitalMove{position:fixed;z-index:4;left:14px;bottom:calc(18px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(3,46px);grid-template-rows:repeat(2,46px);gap:5px;opacity:.72}
+.move-key{border:1px solid #c1e3f033;border-radius:12px;background:#07141dbb;color:#d9effb;font-size:17px;touch-action:none;user-select:none}
+.move-key[data-move=forward]{grid-column:2;grid-row:1}
+.move-key[data-move=left]{grid-column:1;grid-row:2}
+.move-key[data-move=back]{grid-column:2;grid-row:2}
+.move-key[data-move=right]{grid-column:3;grid-row:2}
+#orbitalLookHint{position:fixed;right:15px;bottom:calc(24px + env(safe-area-inset-bottom));z-index:2;color:#c1d6e377;font-size:9px;letter-spacing:.1em;pointer-events:none}
+#orbitalDashboardClose{position:fixed;right:15px;top:12px;z-index:12}
+.shell.orbital-dashboard{display:block;position:fixed;inset:0;z-index:8;overflow:auto;background:#080d12;padding-top:55px}
+#overlay{z-index:10}
+@media(min-width:800px){#orbitalMove{opacity:.38}.orbital-card{padding:34px}}
+@media(max-width:600px){#orbitalBrand{left:12px;font-size:9px}#orbitalBrand b{font-size:13px}#orbitalStatus{right:10px;gap:5px}.orbital-chip{padding:8px 9px;font-size:8px}#orbitalHelp{font-size:9px;bottom:calc(12px + env(safe-area-inset-bottom));max-width:60vw;white-space:normal}#orbitalMove{left:10px;bottom:calc(17px + env(safe-area-inset-bottom));grid-template-columns:repeat(3,42px);grid-template-rows:repeat(2,42px)}}
 </style></head><body>
+<div id="orbitalWorld" aria-label="Interactive 3D orbital station"></div>
+<div id="orbitalHud"><div id="orbitalBrand">REFLEX<span style="color:#83d8c1">LAB</span><b>ORBITAL STATION / 01</b></div><div id="orbitalStatus"><span class="orbital-chip online">● LIFE SUPPORT NOMINAL</span><button class="orbital-chip" id="orbitalLogbook">LOGBOOK</button></div><div id="orbitalCrosshair"></div><div id="orbitalHelp">WASD / ARROWS TO MOVE · DRAG TO LOOK · EXPLORE THE MODULE</div><button id="orbitalInteract">ACCESS REFLEX TRAINING</button></div>
+<div id="orbitalMove"><button class="move-key" data-move="forward">↑</button><button class="move-key" data-move="left">←</button><button class="move-key" data-move="back">↓</button><button class="move-key" data-move="right">→</button></div><div id="orbitalLookHint">DRAG ANYWHERE TO LOOK</div>
+<div id="orbitalStart"><div class="orbital-card"><div class="orbital-eyebrow">REFLEXLAB · ORBITAL TRAINING FACILITY</div><h1>Welcome<br>aboard.</h1><p>Step into the station. Walk through the observation module, look out across the planet and find the reflex-training console. This is your new training environment.</p><p style="font-size:11px;color:#7f9bab">Move with the directional pad or WASD. Drag the screen to look around. Approach the training console and tap its access prompt.</p><button class="orbital-enter" id="orbitalEnter">ENTER STATION</button></div></div>
+<button class="orbital-chip" id="orbitalDashboardClose" style="display:none">CLOSE LOGBOOK ✕</button>
 <main class="shell">
 <header class="top"><div class="brand">REFLEX<span>LAB</span></div><div class="live">● DAILY CIRCUIT / OFFLINE</div></header>
 <section class="hero"><div class="eyebrow">Perceptual · cognitive · visual-motor</div><h1>Train the response.<br><span style="color:var(--mint)">Measure the result.</span></h1><p>A structured daily circuit built around different types of visual response. Six short stations, changing patterns and a timed finish. Aim for accurate decisions before chasing speed.</p></section>
@@ -158,4 +198,69 @@ function formatTime(s){const n=Math.round(s);return String(Math.floor(n/60)).pad
 function quitCircuit(){clearClocks();active=false;$('overlay').classList.remove('open');render()}
 render();
 if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+const host=document.getElementById('orbitalWorld');
+const scene=new THREE.Scene();scene.background=new THREE.Color(0x02050b);scene.fog=new THREE.Fog(0x07111d,24,75);
+const camera=new THREE.PerspectiveCamera(72,innerWidth/innerHeight,.1,180);camera.position.set(0,1.65,5.2);
+const renderer=new THREE.WebGLRenderer({antialias:false,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.25));renderer.setSize(innerWidth,innerHeight);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;host.appendChild(renderer.domElement);
+const mat=(c,r=.7,m=.25,e=0)=>new THREE.MeshStandardMaterial({color:c,roughness:r,metalness:m,emissive:e});
+const hull=mat(0x263642,.7,.65),wall=mat(0x172630,.82,.42),floorMat=mat(0x111d27,.75,.5),trim=mat(0x536d7b,.35,.7),dark=mat(0x080f17,.5,.4),glass= new THREE.MeshPhysicalMaterial({color:0x8ac8e8,roughness:.08,metalness:.15,transparent:true,opacity:.13,transmission:.25,thickness:.2}),screenMat=mat(0x173c48,.3,.25,0x0b6674),mint=mat(0x70e8c4,.3,.25,0x167b62),amber=mat(0xe6a85f,.4,.2,0x6d3a12);
+function box(parent,w,h,d,m,x,y,z){const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o}
+scene.add(new THREE.HemisphereLight(0x9ac8e4,0x101722,1.55));const key=new THREE.DirectionalLight(0x9bc9e8,1.8);key.position.set(-5,9,7);scene.add(key);const warm=new THREE.PointLight(0x8fe3d1,18,17);warm.position.set(2,3,1);scene.add(warm);
+const room=new THREE.Group();scene.add(room);
+box(room,20,.35,18,floorMat,0,-.2,0);box(room,20,.35,18,hull,0,5.2,0);
+box(room,.35,5.4,18,hull,-10,2.5,0);box(room,.35,5.4,18,hull,10,2.5,0);
+box(room,20,5.4,.35,hull,0,2.5,9);
+box(room,2.6,5.4,.35,hull,-8.7,2.5,-9);box(room,2.6,5.4,.35,hull,8.7,2.5,-9);
+box(room,14,.28,.5,trim,0,5.0,-8.78);box(room,14,.28,.5,trim,0,.3,-8.78);box(room,.28,4.7,.5,trim,-7,2.65,-8.78);box(room,.28,4.7,.5,trim,7,2.65,-8.78);
+const windowGlass=new THREE.Mesh(new THREE.PlaneGeometry(13.5,4.45),glass);windowGlass.position.set(0,2.65,-8.8);room.add(windowGlass);
+for(let x=-4.5;x<=4.5;x+=3){box(room,.09,4.45,.18,trim,x,2.65,-8.7)}
+// External planet, stars and a small orbital vehicle.
+const space=new THREE.Group();scene.add(space);const starsGeo=new THREE.BufferGeometry(),positions=[];for(let i=0;i<1600;i++){const a=Math.random()*Math.PI*2,yy=(Math.random()-.5)*55,rr=40+Math.random()*45;positions.push(Math.cos(a)*rr,yy,-30-Math.random()*80)}starsGeo.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));const stars=new THREE.Points(starsGeo,new THREE.PointsMaterial({color:0xd9edff,size:.11,sizeAttenuation:true}));space.add(stars);
+const planet=new THREE.Mesh(new THREE.SphereGeometry(10,48,32),new THREE.MeshStandardMaterial({color:0x245c89,roughness:1,metalness:0}));planet.position.set(-12,1,-48);space.add(planet);
+const clouds=new THREE.Mesh(new THREE.SphereGeometry(10.08,40,28),new THREE.MeshBasicMaterial({color:0x5bb7d9,transparent:true,opacity:.14,side:THREE.BackSide}));clouds.position.copy(planet.position);space.add(clouds);
+const moon=new THREE.Mesh(new THREE.SphereGeometry(2.2,24,18),mat(0x858c96,1,0));moon.position.set(18,11,-62);space.add(moon);
+const ship=new THREE.Group();box(ship,1.7,.32,3,trim,0,0,0);box(ship,.7,.25,1.1,glass,0,.25,-.2);box(ship,4,.08,.55,hull,0,-.08,.1);ship.position.set(11,-4,-35);space.add(ship);
+// Interior architecture: ribs, floor guidance strips, ceiling panels, wall terminals.
+for(let z=-7;z<=7;z+=4){box(room,.16,5,.22,trim,-9.65,2.55,z);box(room,.16,5,.22,trim,9.65,2.55,z)}
+for(let x=-8;x<=8;x+=4){box(room,.12,.035,15,mint,x,.0,.1);box(room,.12,.035,15,mint,x,.0,0)}
+for(let z=-6;z<=6;z+=4){box(room,18,.04,.08,trim,0,.015,z)}
+for(let x=-7;x<=7;x+=3.5){box(room,2.4,.08,1.2,wall,x,5.0,3.5);const lamp=new THREE.PointLight(0x8ec9e8,2.2,7);lamp.position.set(x,4.6,3.5);scene.add(lamp)}
+// Wall-mounted instrument banks and a sealed airlock door.
+box(room,4,3,.35,wall,-6,2.2,8.7);box(room,3.2,2.4,.12,dark,-6,2.3,8.47);box(room,2.8,.08,.08,mint,-6,3.3,8.38);
+for(let i=0;i<6;i++){box(room,.3,.18,.08,i%2?mint:amber,-7.15+i*.46,2.8,8.36)}
+box(room,2.4,4.2,.4,hull,6.9,2.1,8.65);box(room,1.65,3.2,.08,dark,6.9,2.1,8.42);box(room,1.45,2.8,.05,trim,6.9,2.1,8.35);box(room,.7,.08,.07,mint,6.9,3.6,8.28);
+// Central training console: a distinct interactive station.
+const consoleGroup=new THREE.Group();consoleGroup.position.set(4.5,0,-1.3);room.add(consoleGroup);
+box(consoleGroup,2.5,1.05,1.35,hull,0,.62,0);box(consoleGroup,2.2,.12,1.18,trim,0,1.18,-.03);
+const monitor=box(consoleGroup,2.05,1.18,.12,dark,0,2.0,-.43);const display=box(consoleGroup,1.86,.99,.035,screenMat,0,2.0,-.36);
+for(let i=0;i<5;i++){box(consoleGroup,.12,.05,.06,i===0?mint:trim,-.75+i*.35,1.27,.2)}
+box(consoleGroup,.65,.04,.04,mint,0,2.55,-.37);
+for(let i=0;i<3;i++){const dot=new THREE.Mesh(new THREE.SphereGeometry(.045,10,8),i===0?mint:i===1?amber:trim);dot.position.set(-.72+i*.18,2.0,-.32);consoleGroup.add(dot)}
+const chair= new THREE.Group();box(chair,.95,.15,.85,dark,0,.55,.9);box(chair,.9,1.1,.16,hull,0,1.1,1.3);box(chair,.16,.65,.16,trim,-.42,.3,.9);box(chair,.16,.65,.16,trim,.42,.3,.9);chair.position.set(4.5,0,-1.3);room.add(chair);
+// Decorative equipment cabinets on side walls.
+for(const z of [-4,1,5]){box(room,1.25,2.7,.65,hull,-9.25,1.35,z);box(room,.9,1.5,.06,dark,-9.25,1.6,z-.34);box(room,.5,.05,.04,mint,-9.25,2.3,z-.39)}
+// A few floating dust motes inside the light, deliberately subtle.
+const dustGeo=new THREE.BufferGeometry(),dustPos=[];for(let i=0;i<100;i++)dustPos.push((Math.random()-.5)*17,Math.random()*4.5+.2,(Math.random()-.5)*14);dustGeo.setAttribute('position',new THREE.Float32BufferAttribute(dustPos,3));const dust=new THREE.Points(dustGeo,new THREE.PointsMaterial({color:0x8dcac7,size:.025,transparent:true,opacity:.45}));room.add(dust);
+let yaw=0,pitch=0,entered=false,nearConsole=false;const held={forward:false,back:false,left:false,right:false};const keyNames={w:'forward',ArrowUp:'forward',s:'back',ArrowDown:'back',a:'left',ArrowLeft:'left',d:'right',ArrowRight:'right'};
+addEventListener('keydown',e=>{if(keyNames[e.key]){held[keyNames[e.key]]=true;e.preventDefault()}if(e.key.toLowerCase()==='e'&&nearConsole)openTraining()});
+addEventListener('keyup',e=>{if(keyNames[e.key])held[keyNames[e.key]]=false});
+document.querySelectorAll('[data-move]').forEach(b=>{const k=b.dataset.move,down=e=>{e.preventDefault();held[k]=true},up=e=>{e.preventDefault();held[k]=false};b.addEventListener('pointerdown',down);['pointerup','pointercancel','pointerleave'].forEach(n=>b.addEventListener(n,up))});
+let lookId=null,lastX=0,lastY=0;renderer.domElement.addEventListener('pointerdown',e=>{if(!entered)return;lookId=e.pointerId;lastX=e.clientX;lastY=e.clientY;renderer.domElement.setPointerCapture(e.pointerId)});renderer.domElement.addEventListener('pointermove',e=>{if(lookId!==e.pointerId)return;const dx=e.clientX-lastX,dy=e.clientY-lastY;lastX=e.clientX;lastY=e.clientY;yaw-=dx*.004;pitch=THREE.MathUtils.clamp(pitch-dy*.003,-1.1,1.1)});const stopLook=e=>{if(lookId===e.pointerId)lookId=null};renderer.domElement.addEventListener('pointerup',stopLook);renderer.domElement.addEventListener('pointercancel',stopLook);
+const player=new THREE.Vector3(0,1.65,5.2),forward=new THREE.Vector3(),right=new THREE.Vector3();let last=performance.now();
+function openTraining(){if(!nearConsole)return;Object.values(held).forEach((_,i)=>{});Object.keys(held).forEach(k=>held[k]=false);if(window.startCircuit)window.startCircuit()}
+document.getElementById('orbitalInteract').addEventListener('click',openTraining);
+document.getElementById('orbitalLogbook').addEventListener('click',()=>{const el=document.querySelector('.shell');el.classList.add('orbital-dashboard');document.getElementById('orbitalDashboardClose').style.display='block'});
+document.getElementById('orbitalDashboardClose').addEventListener('click',()=>{document.querySelector('.shell').classList.remove('orbital-dashboard');document.getElementById('orbitalDashboardClose').style.display='none'});
+document.getElementById('orbitalEnter').addEventListener('click',()=>{entered=true;document.getElementById('orbitalStart').style.display='none'});
+function animate(now){requestAnimationFrame(animate);const dt=Math.min((now-last)/1000,.04);last=now;
+if(entered){forward.set(Math.sin(yaw),0,-Math.cos(yaw));right.set(Math.cos(yaw),0,Math.sin(yaw));const speed=3.2;const move=new THREE.Vector3();if(held.forward)move.add(forward);if(held.back)move.sub(forward);if(held.right)move.add(right);if(held.left)move.sub(right);if(move.lengthSq()>0){move.normalize().multiplyScalar(speed*dt);player.add(move)}
+player.x=THREE.MathUtils.clamp(player.x,-9.1,9.1);player.z=THREE.MathUtils.clamp(player.z,-8.1,8.1);
+const dist=player.distanceTo(new THREE.Vector3(4.5,1.65,-1.3));nearConsole=dist<3.2;document.getElementById('orbitalInteract').classList.toggle('show',nearConsole);document.getElementById('orbitalHelp').textContent=nearConsole?'TRAINING CONSOLE IN RANGE · PRESS E OR TAP ACCESS':'WASD / ARROWS TO MOVE · DRAG TO LOOK · EXPLORE THE MODULE';
+}
+camera.position.copy(player);camera.rotation.order='YXZ';camera.rotation.set(pitch,yaw,0);planet.rotation.y+=dt*.012;clouds.rotation.y+=dt*.014;ship.position.x=11+Math.sin(now*.00012)*1.8;ship.position.y=-4+Math.sin(now*.0002)*.35;dust.rotation.y+=dt*.006;renderer.render(scene,camera)}
+requestAnimationFrame(animate);
+addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
 </script></body></html>
