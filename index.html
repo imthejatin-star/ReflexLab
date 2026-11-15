@@ -116,6 +116,7 @@ function tap(){
  stats();
 }
 function draw(now){
+ const dt=last?Math.min((now-last)/1000,.04):1/60;last=now;
  const w=canvas.clientWidth,h=canvas.clientHeight,cx=w/2,cy=h/2,r=Math.min(w,h)*.345;
  ctx.clearRect(0,0,w,h);
  // Subtle orbit guides
@@ -138,7 +139,7 @@ function draw(now){
  if(feedback&&now<feedbackUntil){
   ctx.fillStyle=feedback==='MATCH!'?'#c5ff61':'#ff737b';ctx.font='800 12px system-ui';ctx.fillText(feedback,cx,cy+r*.62);
  }else if(feedback){feedback=''}
- if(active)angle=(angle+direction*speed*(1/60))%TAU;
+ if(active)angle=(angle+direction*speed*dt)%TAU;
  requestAnimationFrame(draw);
 }
 $('start').addEventListener('click',start);
