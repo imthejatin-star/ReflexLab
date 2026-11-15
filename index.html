@@ -104,6 +104,7 @@ function nextTrial(){
 }
 function showTrial(){
  if(!active)return;
+ $('instruction').style.display='none';
  stimStart=performance.now();
  if(station===0){
   task='tap';$('stimulus').className='stimulus dot';$('stimulus').style.display='block';$('stimulus').onclick=()=>answer(true);
@@ -112,7 +113,7 @@ function showTrial(){
  }else if(station===2){
   task=Math.random()<.5?'left':'right';const col=Math.random()<.5?'green':'blue';task=col==='green'?'left':'right';$('instruction').style.display='block';$('instruction').innerHTML='<strong>'+col.toUpperCase()+'</strong>GREEN → LEFT &nbsp; / &nbsp; BLUE → RIGHT';$('choiceRow').style.display='flex';$('choiceRow').innerHTML='<button class="direction" onclick="answer(\'left\')">← LEFT</button><button class="direction" onclick="answer(\'right\')">RIGHT →</button>';
  }else if(station===3){
-  task=Math.random()<.5?'left':'right';$('instruction').style.display='block';$('instruction').innerHTML='<strong style="font-size:26px">＋</strong>Keep your eyes near the centre. Detect the side signal.';const el=$('stimulus');el.className='stimulus dot amber';el.style.width='38px';el.style.height='38px';el.style.display='block';el.style.left=task==='left'?'12%':'88%';el.style.top=(25+Math.random()*45)+'%';el.style.transform='translate(-50%,-50%)';$('choiceRow').style.display='flex';$('choiceRow').innerHTML='<button class="direction" onclick="answer(\'left\')">← LEFT</button><button class="direction" onclick="answer(\'right\')">RIGHT →</button>';
+  task=Math.random()<.5?'left':'right';$('instruction').style.display='block';$('instruction').innerHTML='<strong style="font-size:26px">＋</strong>Keep your eyes near the centre. Detect the side signal.';const el=$('stimulus');el.onclick=null;el.className='stimulus dot amber';el.style.width='38px';el.style.height='38px';el.style.display='block';el.style.left=task==='left'?'12%':'88%';el.style.top=(25+Math.random()*45)+'%';el.style.transform='translate(-50%,-50%)';$('choiceRow').style.display='flex';$('choiceRow').innerHTML='<button class="direction" onclick="answer(\'left\')">← LEFT</button><button class="direction" onclick="answer(\'right\')">RIGHT →</button>';
  }else if(station===4){startSequence()}
  else if(station===5){
   task='tap';const el=$('movingTarget');el.style.display='block';el.style.left=(10+Math.random()*78)+'%';el.style.top=(12+Math.random()*72)+'%';el.style.transform='translate(-50%,-50%)';el.onclick=()=>answer(true);
