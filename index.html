@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080d12"><meta name="description" content="Short daily reflex and visual response training.">
+<link rel="manifest" href="manifest.webmanifest">
+<title>REFLEXLAB — Daily Training</title>
+<style>
+:root{color-scheme:dark;--bg:#080d12;--panel:#101922;--panel2:#14212b;--line:#233440;--text:#e7f0f4;--muted:#8ba0ac;--mint:#67f0c0;--blue:#6dbbff;--amber:#ffc66d;--red:#ff7777}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 70% -15%,#173142 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}button{font:inherit;cursor:pointer}button:focus-visible{outline:2px solid var(--mint);outline-offset:3px}.shell{max-width:1080px;margin:auto;padding:22px 18px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px}.brand{font-weight:850;letter-spacing:.16em;font-size:15px}.brand span{color:var(--mint)}.status{font-size:11px;color:var(--mint);letter-spacing:.12em}.hero{margin:24px 0 22px}.eyebrow{color:var(--mint);font-size:11px;letter-spacing:.2em;text-transform:uppercase}.hero h1{font-size:clamp(30px,6vw,52px);line-height:1.05;letter-spacing:-.045em;margin:9px 0}.hero p{color:var(--muted);max-width:620px;margin:10px 0}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:13px}.card{background:linear-gradient(145deg,#14212a,#0e171e);border:1px solid var(--line);border-radius:17px;padding:18px;min-width:0}.stats{grid-column:span 3}.stat-label{color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase}.stat-value{font-size:28px;font-weight:750;margin-top:5px}.stat-sub{font-size:11px;color:var(--muted)}.section-head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:28px 0 12px}.section-head h2{margin:0;font-size:18px}.section-head small{color:var(--muted)}.game{grid-column:span 6;display:flex;flex-direction:column;gap:12px}.game-top{display:flex;justify-content:space-between;gap:12px}.game h3{margin:0;font-size:17px}.game p{margin:4px 0 0;color:var(--muted);font-size:13px}.tag{font-size:10px;letter-spacing:.1em;color:var(--mint);border:1px solid #285d50;padding:3px 8px;border-radius:99px;height:max-content}.primary,.secondary{border:0;border-radius:11px;padding:12px 15px;font-weight:700}.primary{background:var(--mint);color:#06130f}.secondary{background:#1c2b36;color:var(--text);border:1px solid var(--line)}.game .primary{width:100%;margin-top:auto}.wide{grid-column:span 12}.muted{color:var(--muted)}.progress{height:7px;border-radius:20px;background:#24333d;overflow:hidden;margin-top:10px}.progress i{display:block;height:100%;background:var(--mint);width:0;transition:width .3s}.history{display:grid;gap:9px}.history-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:9px 0;font-size:13px}.empty{color:var(--muted);font-size:13px;padding:12px 0}.foot{font-size:11px;color:var(--muted);margin-top:22px}
+.overlay{position:fixed;inset:0;background:#05090df2;z-index:5;display:none;align-items:center;justify-content:center;padding:14px}.overlay.open{display:flex}.stage{width:min(760px,100%);min-height:min(620px,94dvh);background:#0c151c;border:1px solid #29404d;border-radius:20px;padding:18px;display:flex;flex-direction:column;position:relative}.stage-head{display:flex;justify-content:space-between;align-items:center}.stage-title{font-weight:800;letter-spacing:.08em}.close{background:#1b2933;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:8px 12px}.stage-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin:12px 0}.arena{flex:1;min-height:350px;border:1px solid #233945;border-radius:15px;background:radial-gradient(ellipse at center,#142530,#091117 70%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;touch-action:manipulation}.prompt{text-align:center;padding:22px;color:var(--muted)}.prompt strong{display:block;color:var(--text);font-size:clamp(24px,6vw,38px);margin-bottom:8px}.target{position:absolute;width:78px;height:78px;border-radius:50%;border:0;background:var(--mint);box-shadow:0 0 0 10px #67f0c01c,0 0 40px #67f0c080;display:none}.target.blue{background:var(--blue);box-shadow:0 0 0 10px #6dbbff1c,0 0 40px #6dbbff80}.target.amber{background:var(--amber);box-shadow:0 0 0 10px #ffc66d1c,0 0 40px #ffc66d80}.target.red{background:var(--red);box-shadow:0 0 0 10px #ff77771c,0 0 40px #ff777780}.stage-actions{display:flex;gap:9px;margin-top:13px}.stage-actions button{flex:1}.result{text-align:center;margin:auto}.result h2{font-size:32px;margin:8px}.result .big{font-size:48px;color:var(--mint);font-weight:850}.choice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;width:min(400px,90%)}.choice{padding:28px 10px;border:1px solid var(--line);border-radius:14px;background:#14232e;color:var(--text);font-size:20px;font-weight:800}.choice.correct{border-color:var(--mint)}.choice.wrong{border-color:var(--red)}@media(max-width:650px){.stats{grid-column:span 6}.game{grid-column:span 12}.shell{padding:17px 14px 38px}.stage{min-height:90dvh;padding:13px}.arena{min-height:320px}}
+</style></head>
+<body><main class="shell">
+<header class="top"><div class="brand">REFLEX<span>LAB</span></div><div class="status">● DAILY TRAINING SYSTEM</div></header>
+<section class="hero"><div class="eyebrow">Train attention · measure response · repeat</div><h1>Sharper responses.<br><span style="color:var(--mint)">One session at a time.</span></h1><p>A short set of visual-response games that gradually changes difficulty. Prioritise accurate responses, then work on consistency.</p></section>
+<div class="grid">
+<div class="card stats"><div class="stat-label">Sessions</div><div class="stat-value" id="sessions">0</div><div class="stat-sub">completed</div></div>
+<div class="card stats"><div class="stat-label">Best reaction</div><div class="stat-value" id="best">—</div><div class="stat-sub">milliseconds</div></div>
+<div class="card stats"><div class="stat-label">Accuracy</div><div class="stat-value" id="accuracy">—</div><div class="stat-sub">last 7 days</div></div>
+<div class="card stats"><div class="stat-label">Day streak</div><div class="stat-value" id="streak">0</div><div class="stat-sub">active days</div></div>
+</div>
+<div class="section-head"><h2>Today's training</h2><small id="todayLabel"></small></div>
+<div class="grid">
+<article class="card game"><div class="game-top"><div><h3>01 / Quick Signal</h3><p>Wait for the green signal, then tap as quickly as you can.</p></div><span class="tag">REACTION</span></div><div class="muted" style="font-size:12px">5 rounds · false starts count against accuracy</div><button class="primary" onclick="startGame('reaction')">Start exercise</button></article>
+<article class="card game"><div class="game-top"><div><h3>02 / Choice Circuit</h3><p>Respond only to the requested colour. Ignore the distractors.</p></div><span class="tag">DECISION</span></div><div class="muted" style="font-size:12px">8 rounds · accuracy before speed</div><button class="primary" onclick="startGame('choice')">Start exercise</button></article>
+<article class="card game"><div class="game-top"><div><h3>03 / Peripheral Watch</h3><p>Keep your eyes on the centre and notice where the side signal appears.</p></div><span class="tag">AWARENESS</span></div><div class="muted" style="font-size:12px">8 rounds · use a comfortable viewing distance</div><button class="primary" onclick="startGame('peripheral')">Start exercise</button></article>
+<article class="card game"><div class="game-top"><div><h3>04 / Focus Tracker</h3><p>Follow the moving target and tap it when it appears.</p></div><span class="tag">TRACKING</span></div><div class="muted" style="font-size:12px">10 targets · controlled movement and accuracy</div><button class="primary" onclick="startGame('tracking')">Start exercise</button></article>
+<div class="card wide"><div class="section-head" style="margin:0 0 8px"><h2>Recent performance</h2><small>Stored on this device</small></div><div id="history" class="history"><div class="empty">Complete an exercise to start your history.</div></div></div>
+</div>
+<p class="foot">Training scores reflect performance in these games, not a clinical reflex test. Improvement here does not guarantee transfer to driving, sports or everyday situations. Keep sessions brief; stop if you experience eye strain, dizziness or discomfort.</p>
+</main>
+<div class="overlay" id="overlay"><section class="stage"><div class="stage-head"><div class="stage-title" id="stageTitle">EXERCISE</div><button class="close" onclick="quitGame()">Exit</button></div><div class="stage-meta"><span id="roundLabel">Round 1</span><span id="scoreLabel">0 correct</span></div><div class="arena" id="arena"><div class="prompt" id="prompt"><strong>Ready?</strong>Tap begin when you're focused.</div><button class="target" id="target" aria-label="Tap target"></button><div class="choice-grid" id="choices" style="display:none"></div></div><div class="stage-actions"><button class="secondary" id="beginBtn" onclick="beginRound()">Begin</button></div></section></div>
+<script>
+const $=id=>document.getElementById(id);
+const STORE='reflexlab-v1';
+let data=JSON.parse(localStorage.getItem(STORE)||'{"sessions":[],"best":null}');
+let game=null,timer=null,started=0,round=0,correct=0,attempts=0,latencies=[],expected='',mode='',phase='idle',rounds=5,level=0;
+function save(){localStorage.setItem(STORE,JSON.stringify(data));render()}
+function dayKey(d=new Date()){return d.toISOString().slice(0,10)}
+function render(){
+ $('sessions').textContent=data.sessions.length;
+ const vals=data.sessions.flatMap(s=>s.times||[]);$('best').textContent=vals.length?Math.min(...vals):'—';
+ const recent=data.sessions.filter(s=>Date.now()-new Date(s.date).getTime()<7*86400000);
+ const a=recent.reduce((n,s)=>n+s.correct,0),b=recent.reduce((n,s)=>n+s.attempts,0);
+ $('accuracy').textContent=b?Math.round(a/b*100)+'%':'—';
+ const days=[...new Set(data.sessions.map(s=>s.date.slice(0,10)))].sort().reverse();let streak=0,d=new Date();d.setHours(0,0,0,0);
+ if(days[0]===dayKey(d)||days[0]===dayKey(new Date(d-86400000))){for(const x of days){if(x===dayKey(d)){streak++;d.setDate(d.getDate()-1)}else break}}
+ $('streak').textContent=streak;$('todayLabel').textContent=new Date().toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'});
+ $('history').innerHTML=data.sessions.slice(-6).reverse().map(s=>'<div class="history-row"><span>'+s.name+' · '+new Date(s.date).toLocaleDateString()+'</span><b>'+s.correct+'/'+s.attempts+' · '+(s.avg?Math.round(s.avg)+' ms':'—')+'</b></div>').join('')||'<div class="empty">Complete an exercise to start your history.</div>';
+}
+function startGame(m){
+ mode=m;round=0;correct=0;attempts=0;latencies=[];phase='idle';rounds=m==='reaction'?5:m==='tracking'?10:8;
+ $('overlay').classList.add('open');$('target').style.display='none';$('choices').style.display='none';$('beginBtn').style.display='block';$('beginBtn').textContent='Begin';$('prompt').style.display='block';
+ $('stageTitle').textContent=({reaction:'QUICK SIGNAL',choice:'CHOICE CIRCUIT',peripheral:'PERIPHERAL WATCH',tracking:'FOCUS TRACKER'})[m];
+ $('prompt').innerHTML='<strong>Ready?</strong>'+({reaction:'Wait for green. Tap only when it appears.',choice:'Tap the green target. Ignore every other colour.',peripheral:'Keep your eyes on the centre marker. Tap the side signal when it appears.',tracking:'Tap the target as it moves to a new position.'})[m];
+ updateMeta();
+}
+function updateMeta(){$('roundLabel').textContent='Round '+Math.min(round+1,rounds)+' / '+rounds;$('scoreLabel').textContent=correct+' correct';}
+function beginRound(){
+ if(phase==='wait')return;
+ $('beginBtn').style.display='none';$('target').style.display='none';$('choices').style.display='none';$('prompt').style.display='block';phase='wait';round++;
+ updateMeta();
+ const delay=mode==='tracking'?300:Math.random()*1600+900;
+ $('prompt').innerHTML='<strong>Stay ready</strong>Wait for the signal…';
+ timer=setTimeout(showStimulus,delay);
+}
+function showStimulus(){
+ $('prompt').style.display='none';attempts++;started=performance.now();phase='active';
+ const arena=$('arena'),t=$('target');t.className='target';t.style.display='block';
+ if(mode==='reaction'){expected='green';t.className='target';place(t,.5,.5);t.onclick=hit}
+ else if(mode==='tracking'){expected='green';place(t,.15+Math.random()*.7,.15+Math.random()*.7);t.onclick=hit}
+ else if(mode==='choice'){
+ expected='green';const c=$('choices');c.innerHTML='';c.style.display='grid';t.style.display='none';
+ ['green','blue','amber','red'].sort(()=>Math.random()-.5).forEach(col=>{const b=document.createElement('button');b.className='choice';b.textContent=col.toUpperCase();b.style.borderColor=col==='green'?'#67f0c0':col==='blue'?'#6dbbff':col==='amber'?'#ffc66d':'#ff7777';b.onclick=()=>{if(phase!=='active')return;if(col==='green')hit();else miss()};c.appendChild(b)});
+ }
+ else if(mode==='peripheral'){
+ expected='tap';$('prompt').style.display='block';$('prompt').innerHTML='<strong style="color:var(--mint)">＋</strong>Keep looking at the centre. Tap the side signal.';const x=Math.random()<.5?.12:.88,y=.25+Math.random()*.5;
+ t.className='target amber';t.style.width='44px';t.style.height='44px';place(t,x,y);t.onclick=hit;
+ }
+}
+function place(el,x,y){el.style.left=(x*100)+'%';el.style.top=(y*100)+'%';el.style.transform='translate(-50%,-50%)'}
+function hit(){if(phase!=='active')return;const ms=performance.now()-started;latencies.push(ms);correct++;nextRound()}
+function miss(){if(phase!=='active')return;nextRound()}
+function nextRound(){
+ phase='between';clearTimeout(timer);$('target').style.display='none';$('choices').style.display='none';$('prompt').style.display='block';$('prompt').innerHTML='<strong>'+ (correct===round?'Good response':'Keep going')+'</strong>Get ready for the next one.';updateMeta();
+ if(round>=rounds){timer=setTimeout(finish,650)}else{$('beginBtn').style.display='block';$('beginBtn').textContent='Next round'}
+}
+function finish(){
+ phase='done';const avg=latencies.length?latencies.reduce((a,b)=>a+b,0)/latencies.length:null;
+ const name=({reaction:'Quick Signal',choice:'Choice Circuit',peripheral:'Peripheral Watch',tracking:'Focus Tracker'})[mode];
+ data.sessions.push({name,date:new Date().toISOString(),correct,attempts,avg,times:latencies.map(Math.round)});
+ if(latencies.length)data.best=Math.min(data.best||Infinity,...latencies);
+ save();$('target').style.display='none';$('choices').style.display='none';$('beginBtn').style.display='none';
+ $('prompt').innerHTML='<div class="result"><div class="eyebrow">EXERCISE COMPLETE</div><h2>'+name+'</h2><div class="big">'+correct+'/'+attempts+'</div><div class="muted">Correct responses</div><p>Average response: <b>'+(avg?Math.round(avg)+' ms':'—')+'</b></p><p class="muted">Keep your next session consistent. Accuracy matters as much as speed.</p><button class="primary" onclick="quitGame()">Return to dashboard</button></div>';
+ $('roundLabel').textContent='Complete';$('scoreLabel').textContent='Saved';
+}
+function quitGame(){clearTimeout(timer);phase='idle';$('overlay').classList.remove('open')}
+$('arena').addEventListener('click',e=>{
+ if(mode==='peripheral'&&phase==='active'&&e.target===$('arena'))miss();
+});
+$('target').addEventListener('click',e=>e.stopPropagation());
+render();
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script></body></html>
