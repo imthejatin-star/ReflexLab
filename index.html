@@ -182,17 +182,17 @@ function showFeedback(title,sub,good){
 function answer(value){
  if(!active||!task||trialLocked)return;
  trialLocked=true;clearTimeout(trialTimer);attempts++;
- const ok=value==='hold'?task==='hold':(value===true?task==='tap':value===task);
+ const ok=value==='hold'?task==='hold':(value===true?(task==='tap'||task==='moving'):value===task);
  if(ok){correct++;reactionTimes.push(performance.now()-stimStart)}
  task='';if(moveFrame)cancelAnimationFrame(moveFrame);moveFrame=0;hideAll();
  showFeedback(ok?'GOOD RESPONSE':'INCORRECT','',ok);
  spawnTimer=setTimeout(()=>{if(active)nextTrial()},460);
 }
 function startSequence(){
- task='sequence';sequence=Array.from({length:4},()=>Math.floor(Math.random()*4));seqInput=0;
+ const serial=trialSerial;task='sequence';sequence=Array.from({length:4},()=>Math.floor(Math.random()*4));seqInput=0;
  $('instruction').style.display='block';$('instruction').innerHTML='<strong>MEMORISE</strong>Watch the four-direction sequence.';
  $('sequence').style.display='flex';$('sequence').innerHTML=sequence.map((v,i)=>'<div class="seq" id="seq'+i+'">'+['↑','→','↓','←'][v]+'</div>').join('');
- let i=0;const reveal=()=>{if(!active||i>=sequence.length){if(!active)return;$('instruction').innerHTML='<strong>REPEAT</strong>Tap the arrows in the same order.';$('sequence').innerHTML=['↑','→','↓','←'].map((a,k)=>'<button class="seq" onclick="sequenceAnswer('+k+')">'+a+'</button>').join('');trialTimer=setTimeout(()=>missTrial(trialSerial),6500);return}
+ let i=0;const reveal=()=>{if(!active||serial!==trialSerial)return;if(i>=sequence.length){$('instruction').innerHTML='<strong>REPEAT</strong>Tap the arrows in the same order.';$('sequence').innerHTML=['↑','→','↓','←'].map((a,k)=>'<button class="seq" onclick="sequenceAnswer('+k+')">'+a+'</button>').join('');trialTimer=setTimeout(()=>missTrial(trialSerial),6500);return}
  const node=$('seq'+i);node.classList.add('active');setTimeout(()=>node.classList.remove('active'),330);i++;setTimeout(reveal,650)};
  setTimeout(reveal,450);
 }
